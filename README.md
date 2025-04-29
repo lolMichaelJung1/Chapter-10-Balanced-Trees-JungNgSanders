@@ -1,16 +1,16 @@
-## Chapter-10-Balanced-Trees-JungNgSanders
+# Chapter-10-Balanced-Trees-JungNgSanders
 by Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 00756276)
 
-## 🛠️ Objective:
+# 🛠️ Objective:
 
 - Explore AVL and Red-Black Trees.
 - Implement basic AVL and Red-Black Trees in Python.
 - Compare performance and balancing operations between the two structures.
 - Reflect on design choices through coding, visualization, and analysis.
 
-## 🧹 Lab
+# 🧹 Lab
 
-# Part 1: AVL Tree Implementation
+## Part 1: AVL Tree Implementation
 - Implement a basic AVL Tree class in Python.
 - Support insertion with rebalancing (rotations).
 - Include tree printing (simple text output or graphic).
@@ -19,7 +19,7 @@ by Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 007
     ? Organizing inventory stock numbers for a warehouse.
     ? Scheduling patient appointments by appointment ID.
 
-# Part 2: Red-Black Tree Implementation
+## Part 2: Red-Black Tree Implementation
 - Implement a Red-Black Tree class in Python.
 - Support insertion with recoloring and rotation as needed.
 - Include tree printing (simple text output or graphic).
