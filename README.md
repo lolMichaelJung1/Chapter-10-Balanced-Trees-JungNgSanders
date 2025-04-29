@@ -28,7 +28,7 @@ by Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 007
     ? Maintaining sorted event timestamps for a server log.
     ? Managing airline flight numbers for efficient look-up and updates.
 
-# Part 3: Comparison and Analysis
+## Part 3: Comparison and Analysis
 - Insert the same set of 20 random integers into both trees.
 - Track and report:
       a. Number of rotations
