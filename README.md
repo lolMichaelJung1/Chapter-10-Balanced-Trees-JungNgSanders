@@ -14,19 +14,14 @@ by Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 007
 - Implement a basic AVL Tree class in Python.
 - Support insertion with rebalancing (rotations).
 - Include tree printing (simple text output or graphic).
-- Real-life scenario to model with your AVL Tree:  
-    ? Managing player rankings in a competitive video game leaderboard.
-    ? Organizing inventory stock numbers for a warehouse.
-    ? Scheduling patient appointments by appointment ID.
+- Real-life scenario to model with your AVL Tree:  Organizing inventory stock numbers for a warehouse.
+
 
 ## Part 2: Red-Black Tree Implementation
 - Implement a Red-Black Tree class in Python.
 - Support insertion with recoloring and rotation as needed.
 - Include tree printing (simple text output or graphic).
-- Choose one real-life scenario to model with your Red-Black Tree:
-    ? Storing and updating book ISBN numbers in a library database.
-    ? Maintaining sorted event timestamps for a server log.
-    ? Managing airline flight numbers for efficient look-up and updates.
+- Real-life scenario to model with your Red-Black Tree: Managing airline flight numbers for efficient look-up and updates.
 
 ## Part 3: Comparison and Analysis
 - Insert the same set of 20 random integers into both trees.
