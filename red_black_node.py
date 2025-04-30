@@ -15,7 +15,7 @@ class RedBlackNode(BstNode): # Inherit from parent node BstNode
     def __init__(self, value):
         print(f"DEBUG: RedBlackNode.__init__({value}) calling super()") # Added for demo
         super().__init__(value) # Call parent node BstNode constructor
-        self.color = 'RED' # Default color
+        self.color = 'R' # Default color
 
 
 # ---- Example Usage  ----
