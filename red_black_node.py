@@ -24,4 +24,4 @@ print("\nCreating RedBlackNode:")
 rb_n = RedBlackNode(20)
 
 
-print(f"RedBlackNode key: {rb_n.value}, color: {rb_n.color}")
+print(f"RedBlackNode value: {rb_n.value}, color: {rb_n.color}")
