@@ -17,10 +17,9 @@ class RedBlackNode(BstNode): # Inherit from parent node BstNode
 
 
 # ---- Example Usage  ----
-# Demonstrate instantiation calls __init__ chain
-print("\nCreating RedBlackNode:")
-rb_node = RedBlackNode(20)
-
-
-print(f"RedBlackNode value: {rb_node.value}, color: {rb_node.color}")
-print(str(rd_node) + "(" + rd_node.color + ")")
+if __name__ == "__main__":
+    # Demonstrate instantiation calls __init__ chain
+    print("\nCreating RedBlackNode:")
+    rb_node = RedBlackNode(20)
+    print(f"RedBlackNode value: {rb_node.value}, color: {rb_node.color}")
+    print(str(rb_node) + "(" + rb_node.color + ")")
