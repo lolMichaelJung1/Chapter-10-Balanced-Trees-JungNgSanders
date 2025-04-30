@@ -14,10 +14,13 @@ class AvlNode(BstNode): # Inherit from BstNode class
         super().__init__(value)  # Call BstNode constructor
         self.height = 1        # Height of the node
 
+
 # --------- Example Use ---------
 # Demonstrate instantiatioin calls __init__ chain
-print("Creating AvlNode:")
-avl_node = AvlNode(10)
-
-print(f"\nAvlNode value: {avl_node.value}, height: {avl_node.height}")
-print(str(avl_node) + "(" + str(avl_node.height) + ")")
+if __name__ == "__main__":
+    # Demonstrate instantiation calls __init__ chain
+    print("Creating AvlNode:")
+    avl_node = AvlNode(10)
+    
+    print(f"\nAvlNode value: {avl_node.value}, height: {avl_node.height}")
+    print(str(avl_node) + "(" + str(avl_node.height) + ")")
