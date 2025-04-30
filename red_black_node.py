@@ -7,8 +7,6 @@
 #--------------------------------------------------------------------------------------------
 
 
-# ---- File: red_black_node.py ----
-
 from bst_node import BstNode
 
 class RedBlackNode(BstNode): # Inherit from parent node BstNode
