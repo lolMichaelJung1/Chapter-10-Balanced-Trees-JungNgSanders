@@ -20,4 +20,4 @@ print("Creating AvlNode:")
 avl_node = AvlNode(10)
 
 print(f"\nAvlNode value: {avl_node.value}, height: {avl_node.height}")
-print(str(avl_node) + "(" + avl_node.height + ")")
+print(str(avl_node) + "(" + str(avl_node.height) + ")")
