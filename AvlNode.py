@@ -5,29 +5,18 @@
 # Course: Spr25_CS_034 CRN 39575
 
 #--------------------------------------------------------------------------------------------
-from io import StringIO
-import sys
+from bst_node import BstNode
 
 
-# --- Node Class ---
-class Node:
-    # Constructor for the Node class
-    def __init__(self, value=None):
-        """
-        Initializes a new node with a given value.
-
-        Args:
-            value: The data to be stored in the node. Defaults to None.
-        """
-        self.value = value  # Store data in the node
-        self.left = None    # Pointer to the left child node
-        self.right = None   # Pointer to the right child node
-        self.height = 1     # Height of the node (used in AVL trees for balancing)
+class AvlNode(BstNode): # Inherit from BstNode class
+    def __init__(self, key):
+        print(f"DEBUG: AvlNode.__init__({key}) calling super()") # Added for demo
+        super().__init__(key)  # Call BstNode constructor
+        self.height = 1        # Height of the node
 
 
-    # String representation of the Node
-    def __str__(self):
-        """
-        Returns the string representation of the node's value.
-        """
-        return str(self.value)
+# Demonstrate instantiatioin calls __init__ chain
+print("Creating AvlNode:")
+avl_node = AvlNode(10)
+
+print(f"\nAvlNode key: {avl_node.value}, height: {avl_node.height}")
