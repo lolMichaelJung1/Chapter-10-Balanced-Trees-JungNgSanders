@@ -16,7 +16,7 @@ class BstNode:
         Args:
             value: The data to be stored in the node. Defaults to None.
         """      
-        print(f"DEBUG: BstNode.__init__(value}) called") # Added for demo   
+        print(f"DEBUG: BstNode.__init__({value}) called") # Added for demo
         self.value = value  # Store data in the node
         self.left = None    # Pointer to the left child node
         self.right = None   # Pointer to the right child node
