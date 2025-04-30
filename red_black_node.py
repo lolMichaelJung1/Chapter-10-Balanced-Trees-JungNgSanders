@@ -21,7 +21,8 @@ class RedBlackNode(BstNode): # Inherit from parent node BstNode
 # ---- Example Usage  ----
 # Demonstrate instantiation calls __init__ chain
 print("\nCreating RedBlackNode:")
-rb_n = RedBlackNode(20)
+rb_node = RedBlackNode(20)
 
 
-print(f"RedBlackNode value: {rb_n.value}, color: {rb_n.color}")
+print(f"RedBlackNode value: {rb_node.value}, color: {rb_node.color}")
+print(str(rd_node) + "(" + rd_node.color + ")")
