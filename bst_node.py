@@ -28,3 +28,10 @@ class BstNode:
         """
         return str(self.value)
 
+# ---- Example Usage  ----
+if __name__ == "__main__":
+    # Demonstrate instantiation calls __init__ chain
+    print("\nCreating BST Node:")
+    bst_node = BstNode(20)
+    print(f"BST Node value: {bst_node.value}")
+    print(f"{str(bst_node)} Left: ({bst_node.left}) Right: ({bst_node.right})")
