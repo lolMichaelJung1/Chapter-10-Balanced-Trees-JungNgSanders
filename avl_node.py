@@ -9,9 +9,9 @@ from bst_node import BstNode
 
 
 class AvlNode(BstNode): # Inherit from BstNode class
-    def __init__(self, key):
-        print(f"DEBUG: AvlNode.__init__({key}) calling super()") # Added for demo
-        super().__init__(key)  # Call BstNode constructor
+    def __init__(self, value):
+        print(f"DEBUG: AvlNode.__init__({value}) calling super()") # Added for demo
+        super().__init__(value)  # Call BstNode constructor
         self.height = 1        # Height of the node
 
 # --------- Example Use ---------
@@ -19,4 +19,4 @@ class AvlNode(BstNode): # Inherit from BstNode class
 print("Creating AvlNode:")
 avl_node = AvlNode(10)
 
-print(f"\nAvlNode key: {avl_node.value}, height: {avl_node.height}")
+print(f"\nAvlNode value: {avl_node.value}, height: {avl_node.height}")
