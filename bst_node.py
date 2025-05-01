@@ -9,7 +9,7 @@
 
 class BstNode:
     # Constructor for the Node class   
-    def __init__(self, value=None):
+    def __init__(self, parent=None, value=None):
         """
         Initializes a new node with a given value.
 
@@ -20,6 +20,7 @@ class BstNode:
         self.value = value  # Store data in the node
         self.left = None    # Pointer to the left child node
         self.right = None   # Pointer to the right child node
+        self.parent = parent # Assign parent to the current node (default value: None)
 
     # String representation of the Node
     def __str__(self):
