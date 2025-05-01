@@ -76,8 +76,12 @@ class RedBlackTreeNode(BstNode):  # This class inherits from BstNode (a basic Bi
             return None
         return self.parent.right if self == self.parent.left else self.parent.left
 
+
     def __str__(self):
-        return f"{self.value} ({self.color})"
+        """
+        Returns a string representation of the node's value and color.
+        """
+        return f"{self.value}({self.color})"
 
 
 # ---- Example Usage  ----
