@@ -34,11 +34,11 @@ by Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 007
 ```
 warehouse-inventory/
 ├── avl/
-│   ├── node.py              # AVLNode class
-│   └── tree.py              # AVLTree logic
+│   ├── avl_node.py              # AVLNode class
+│   └── AVLTree.py              # AVLTree logic
 ├── rbtree/
-│   ├── node.py              # RedBlackNode class
-│   └── tree.py              # RedBlackTree logic
+│   ├── red_black_node.py      # RedBlackNode class
+│   └── RedBlackTree.py        # RedBlackTree logic
 ├── data/
 │   ├── generate_data.py     # Random inventory data
 │   └── generate_flight_data.py # Random flight data
