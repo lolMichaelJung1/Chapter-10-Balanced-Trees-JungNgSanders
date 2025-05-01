@@ -23,8 +23,15 @@ by Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 007
 - Include tree printing (simple text output or graphic).
 - Real-life scenario to model with your Red-Black Tree: Managing airline flight numbers for efficient look-up and updates.
 
+## Part 3: Comparison and Analysis
+- Insert the same set of 20 random integers into both trees.
+- Track and report:
+      a. Number of rotations
+      b. Final tree heights
+      c. Summarize key differences observed between the AVL and Red-Black trees.
+
 ## 📁 Project Structure (AVL & RBT)
-"""
+```
 warehouse-inventory/
 ├── avl/
 │   ├── node.py              # AVLNode class
@@ -45,10 +52,4 @@ warehouse-inventory/
 ├── main.py                  # Inventory app entry point
 ├── main_flights.py          # Flight app entry point
 └── README.md                # Project documentation
-"""
-## Part 3: Comparison and Analysis
-- Insert the same set of 20 random integers into both trees.
-- Track and report:
-      a. Number of rotations
-      b. Final tree heights
-      c. Summarize key differences observed between the AVL and Red-Black trees.
+
