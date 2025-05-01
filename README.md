@@ -32,23 +32,23 @@ by Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 007
 
 ## 📁 Project Structure (AVL & RBT)
 ```
-warehouse-inventory/
+warehouse-inventory/airline-flight
 ├── avl/
-│   ├── avl_node.py              # AVLNode class
-│   └── AVLTree.py              # AVLTree logic
+│   ├── avl_node.py                 # AVLNode class
+│   └── AVLTree.py                  # AVLTree logic
 ├── rbtree/
-│   ├── red_black_node.py      # RedBlackNode class
-│   └── RedBlackTree.py        # RedBlackTree logic
+│   ├── red_black_node.py           # RedBlackNode class
+│   └── RedBlackTree.py             # RedBlackTree logic
 ├── data/
-│   └── generate_data.py      # Random flight data & inventory data
+│   └── generate_data.py            # Random flight data & inventory data
 ├── inventory/
-│   └── avl_inventory_manager.py # InventoryManager abstraction
+│   └── avl_inventory_manager.py   # InventoryManager abstraction
 ├── flights/
-│   └── rbt_flight_manager.py    # FlightManager abstraction
+│   └── rbt_flight_manager.py      # FlightManager abstraction
 ├── tests/
-│   ├── test_avl_tree.py     # Unit tests for AVL
-│   └── test_rbtree.py       # Unit tests for RBT
-├── main.py                  # Inventory app entry point
-├── main_flights.py          # Flight app entry point
-└── README.md                # Project documentation
+│   ├── test_avl_tree.py           # Unit tests for AVL
+│   └── test_rbtree.py             # Unit tests for RBT
+├── main.py                        # Inventory app entry point
+├── main_flights.py                # Flight app entry point
+└── README.md                      # Project documentation
 
