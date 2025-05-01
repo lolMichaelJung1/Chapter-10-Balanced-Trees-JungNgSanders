@@ -9,7 +9,7 @@
 
 class BstNode:
     # Constructor for the Node class   
-    def __init__(self, parent=None, value=None):
+    def __init__(self, value, parent=None):
         """
         Initializes a new node with a given value.
 
