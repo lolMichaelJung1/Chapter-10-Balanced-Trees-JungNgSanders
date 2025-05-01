@@ -88,5 +88,5 @@ class RedBlackTreeNode(BstNode):  # This class inherits from BstNode (a basic Bi
 # ---- Example Usage  ----
 if __name__ == "__main__":
     # Demonstrate instantiation calls __init__ chain
-    rbt_node = RedBlackTreeNode(10)
-    print(rbt_node)
+    rbt_node = RedBlackTreeNode(10) # Instantiate an object of RedBlackTreeNode with value 10
+    print(rbt_node)   # Print the node (call the __str__ for a user-friendly output)
