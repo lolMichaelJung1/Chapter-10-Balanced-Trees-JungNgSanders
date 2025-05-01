@@ -40,12 +40,11 @@ warehouse-inventory/
 │   ├── red_black_node.py      # RedBlackNode class
 │   └── RedBlackTree.py        # RedBlackTree logic
 ├── data/
-│   ├── generate_data.py     # Random inventory data
-│   └── generate_flight_data.py # Random flight data
+│   └── generate_data.py      # Random flight data & inventory data
 ├── inventory/
-│   └── manager.py           # InventoryManager abstraction
+│   └── avl_inventory_manager.py # InventoryManager abstraction
 ├── flights/
-│   └── manager.py           # FlightManager abstraction
+│   └── rbt_flight_manager.py    # FlightManager abstraction
 ├── tests/
 │   ├── test_avl_tree.py     # Unit tests for AVL
 │   └── test_rbtree.py       # Unit tests for RBT
