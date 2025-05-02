@@ -8,10 +8,8 @@
 
 from io import StringIO
 import sys
-from TreeNode import Node
-from BinaryTree import BinaryTree
-from BST import BST
-
+from bst_node import BstNode
+from avl_node import AvlNode
 
 # --- AVLTree Class ---
 # Represents a AVL Tree, inheriting basic tree operations from BST.
