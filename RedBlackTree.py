@@ -1,6 +1,6 @@
 # Created by: Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 00756276)
 from bst_node import BstNode
-from red_black_node import RedBlackNode
+from red_black_node import RedBlackTreeNode
 
 
 class RedBlackTree:
