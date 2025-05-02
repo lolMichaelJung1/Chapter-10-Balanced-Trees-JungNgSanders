@@ -16,7 +16,7 @@ from avl_node import AvlNode
 
 # --- AVLTree Class ---
 # Represents a AVL Tree, inheriting basic tree operations from BST.
-class AVLTree(BST):
+class AVLTree():
     def __init__(self, root=None):
         """
         Initializes an AVL Tree with an optional root node.
