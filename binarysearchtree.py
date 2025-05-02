@@ -4,7 +4,6 @@ Group Members: Michael Jung (ID:10680322), Timothy Sanders (01002147), Megan Ng 
 # Course: Spr25_CS_034 CRN 39575
 #--------------------------------------------------------------------------------------------
 
-
 # Create a test tree manually
 #          50
 #        /    \
