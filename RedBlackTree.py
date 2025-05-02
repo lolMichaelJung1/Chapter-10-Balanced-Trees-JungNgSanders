@@ -1,71 +1,17 @@
 # Created by: Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 00756276)
+from typing import Any
+
 from bst_node import BstNode
 from red_black_node import RedBlackTreeNode
 
 
-class RedBlackTreeNode(BstNode):  # This class inherits from BstNode (a basic Binary Search Tree node class)
-    def __init__(self, value, parent=None, is_red=True):
-        """
-        Initializes a new Red-Black Tree Node.
-
-        Args:
-            value: The value to be stored in the node.
-            parent: The parent node of this node (default: None).
-            is_red: True if the node should be colored red initially, otherwise black (default: True).
-        """
-        super().__init__(value)  # Call the parent class's __init__ to initialize common attributes like value, left, right, parent
-        # Set the color of the node based on the 'is_red' parameter:
-        # 'R' for red if is_red is True, 'B' for black otherwise
-        self.color = 'R' if is_red else 'B'
-
-    # For easier debugging
-    def __str__(self):
-        """
-        Returns a string representation of the node's value and color.
-        """
-        return f"RedBlackTreeNode{self.value}({self.color})"
-
-
-    def is_red(self):
-        """Returns True if this node is red, False otherwise."""
-        return self.color == "R"
-
-    def is_black(self):
-        """Returns True if this node is black, False otherwise."""
-        return self.color == "B"
-
-    def get_grandparent(self):
-        """Returns the grandparent of this node, or None if it doesn't exist."""
-        # A node needs a parent and the parent needs a parent to have a grandparent
-        if self.parent and self.parent.parent:
-            return self.parent.parent
-        return None
-
-    def get_uncle(self):
-        """Returns the uncle of this node, or None if it doesn't exist."""
-        grandparent = self.get_grandparent()
-        if not grandparent:
-            return None  # No grandparent means no uncle
-        # Check if the parent is the left or right child of the grandparent
-        if self.parent == grandparent.left:
-            return grandparent.right # Uncle is the right child
-        else:
-            return grandparent.left  # Uncle is the left child
-
-    def get_sibling(self):
-        """Returns this node's sibling, or None if it doesn't exist."""
-        if not self.parent:
-            return None # Root node has no sibling
-        # Check if this node is the left or right child of its parent
-        if self == self.parent.left:
-            return self.parent.right # Sibling is the right child
-        else:
-            return self.parent.left  # Sibling is the left child
-
-
-
 # RedBlackTree class - represents the Red-Black Tree structure
 class RedBlackTree:
+    """Represents a Red-Black Tree structure.
+
+    Attributes:
+        root (RedBlackTreeNode): A reference to the optional root node of the Red-Black tree
+    """
     def __init__(self):
         """
         Initializes an empty Red-Black Tree.
@@ -73,12 +19,11 @@ class RedBlackTree:
         # The root node of the tree, initially None (empty tree)
         self.root = None
 
-    def insert(self, value):
-        """
-        Inserts a new node with the given key into the Red-Black Tree.
+    def insert(self, value: Any) -> None:
+        """Inserts a new node with the given key into the Red-Black Tree.
 
         Args:
-            value: The value to be inserted into the tree.
+            value (Any): The value to be inserted into the tree.
         """
         # Step 1: Perform standard BST insertion and color the new node red.
         new_node = RedBlackTreeNode(value) # New nodes are always initially red
@@ -120,15 +65,14 @@ class RedBlackTree:
              self.root.color = "B"
 
 
-    def _fix_insert(self, node):
-        """
-        Fixes the Red-Black Tree properties (violations) after insertion.
+    def _fix_insert(self, node: RedBlackTreeNode) -> None:
+        """Fixes the Red-Black Tree properties (violations) after insertion.
 
         This method handles the balancing operations (recoloring and rotations)
         required to maintain the Red-Black Tree invariants.
 
         Args:
-            node: The newly inserted node (which is initially red).
+            node (RedBlackTreeNode): The newly inserted node (which is initially red).
         """
         # Continue fixing as long as the current node is red and has a red parent
         # (violating the "no consecutive red nodes" property).
@@ -218,12 +162,11 @@ class RedBlackTree:
         self.root.color = "B"
 
 
-    def _rotate_left(self, node):
-        """
-        Performs a left rotation around the given node.
+    def _rotate_left(self, node: RedBlackTreeNode) -> None:
+        """Performs a left rotation around the given node.
 
         Args:
-            node: The node around which the rotation is performed (becomes the child).
+            node (RedBlackTreeNode): The node around which the rotation is performed (becomes the child).
         """
         # Identify the pivot (node's right child) which will move up
         pivot = node.right
@@ -255,9 +198,8 @@ class RedBlackTree:
         node.parent = pivot # Update the original node's parent pointer
 
 
-    def _rotate_right(self, node):
-        """
-        Performs a right rotation around the given node.
+    def _rotate_right(self, node: RedBlackTreeNode) -> None:
+        """Performs a right rotation around the given node.
 
         Args:
             node: The node around which the rotation is performed (becomes the child).
@@ -292,13 +234,13 @@ class RedBlackTree:
         node.parent = pivot # Update the original node's parent pointer
 
     # --- Helper methods for traversal/visualization (Optional) ---
-    def inorder_traversal(self):
+    def inorder_traversal(self) -> list:
         """Performs an inorder traversal and returns a list of values."""
         result = []
         self._inorder_recursive(self.root, result)
         return result
 
-    def _inorder_recursive(self, node, result):
+    def _inorder_recursive(self, node: RedBlackTreeNode, result: list) -> None:
         if node:
             self._inorder_recursive(node.left, result)
             result.append((node.value, node.color)) # Include color for verification
