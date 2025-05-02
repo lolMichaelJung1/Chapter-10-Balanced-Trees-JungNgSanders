@@ -7,10 +7,11 @@ from red_black_node import RedBlackTreeNode
 
 
 if __name__ == "__main__":
-    avl = AvlTree()
+    avl = AVLTree()
+    
   
     rbt = RedBlackTree()
-    keys_to_insert = [10, 20, 30, 15, 25, 5, 1, 8, 18, 28]
+    values_to_insert = [10, 20, 30, 15, 25, 5, 1, 8, 18, 28]
 
     print("Inserting keys:", keys_to_insert)
     for key in keys_to_insert:
