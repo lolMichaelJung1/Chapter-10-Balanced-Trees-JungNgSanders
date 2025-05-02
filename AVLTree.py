@@ -1,3 +1,11 @@
+# Created by: Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 00756276)
+
+# Date: 4/21/25
+
+# Course: Spr25_CS_034 CRN 39575
+
+#--------------------------------------------------------------------------------------------
+
 from io import StringIO
 import sys
 from TreeNode import Node
