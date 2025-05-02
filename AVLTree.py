@@ -9,13 +9,11 @@
 from io import StringIO
 import sys
 import unittest
-
-from binarysearchtree import BST
 from bst_node import BstNode
 from avl_node import AvlNode
 
 # --- AVLTree Class ---
-# Represents a AVL Tree, inheriting basic tree operations from BST.
+# Represents a AVL Tree
 class AVLTree():
     def __init__(self, root=None):
         """
@@ -24,7 +22,7 @@ class AVLTree():
         Args:
             root: The root node of the AVL tree.
         """
-        super().__init__(root)    # Inherit from BST
+        self.root = root
 
 
     def get_height(self, node):
