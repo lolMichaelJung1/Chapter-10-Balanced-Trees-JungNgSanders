@@ -8,6 +8,9 @@
 
 from io import StringIO
 import sys
+import unittest
+
+from binarysearchtree import BST
 from bst_node import BstNode
 from avl_node import AvlNode
 
@@ -119,7 +122,7 @@ class AVLTree(BST):
             """
             # Standard BST insertion
             if not node:   # If the current node is None (empty subree)
-                return Node(value)    # Create a new node with the value and return it
+                return AvlNode(value)    # Create a new node with the value and return it
             if value < node.value:    # If the value is less than the current node's value
                 node.left = _insert(node.left, value) # Insert into the left subtree
             elif value > node.value:  # If the value is greater than the current node's value
