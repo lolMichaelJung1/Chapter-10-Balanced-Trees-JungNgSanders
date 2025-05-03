@@ -5,7 +5,7 @@
 # Course: Spr25_CS_034 CRN 39575
 
 #--------------------------------------------------------------------------------------------
-
+from avl_node import AvlNode
 
 class InventoryManager:
     """
