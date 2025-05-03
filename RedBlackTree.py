@@ -245,7 +245,17 @@ class RedBlackTree:
             self._inorder_recursive(node.left, result)
             result.append((node.value, node.color)) # Include color for verification
             self._inorder_recursive(node.right, result)
+            
+    def get_red_black_tree_height(self, node : RedBlackTreeNode):
+        """Returns the height of the Red-Black Tree by calculating it recursively.
 
+        Args:
+            node (RedBlackTreeNode): The node which is used to calculate the height of the Red-Black tree.
+        """
+        if node is None:
+            return -1
+        return 1 + max(self.get_red_black_tree_height(node.left), self.get_red_black_tree_height(node.right))
+        
 # --- Example Usage ---
 if __name__ == "__main__":
     rbt = RedBlackTree()
