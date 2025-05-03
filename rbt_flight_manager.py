@@ -5,6 +5,7 @@
 # Course: Spr25_CS_034 CRN 39575
 
 #--------------------------------------------------------------------------------------------
+from bst_node import BstNode
 from red_black_node import RedBlackTreeNode
 from RedBlackTree import RedBlackTree
 
