@@ -9,6 +9,54 @@ from red_black_node import RedBlackTreeNode
 from AVLTree import AVLTree
 from RedBlackTree import RedBlackTree
 
+# === Unified Demo with avl_inventory_manager & rbt_flight_manager ===
+def demo_all():
+    """
+    Demonstrates AVL and Red-Black Trees, including:
+    - AVL random insert
+    - AVL-based InventoryManager
+    - Red-Black random insert
+    - Red-Black-based FlightManager
+    """
+
+    # === AVL Tree Demo ===
+    print("\n--- AVL Tree Random Insert Test ---")
+    random_avl_tree = AVLTree()
+    random_values = random.sample(range(1, 100), 15)
+    for v in random_values:
+        random_avl_tree.insert(v)
+    random_avl_tree.print_tree(random_avl_tree.root)  # use default = safest
+    random_avl_tree.print_log()
+
+    # === AVL Inventory Manager ===
+    print("\n>>> AVL Inventory Demo")
+    inv = InventoryManager()
+    for id in random.sample(range(1000, 1100), 10):
+        inv.add_item(id)
+    inv.show_inventory(random_avl_tree.root)
+    inv.show_log()
+
+    # === Red-Black Tree Demo ===
+    print("\n--- Red-Black Tree Random Insert Test ---")
+    random_rb_tree = RedBlackTree()
+    for v in random_values:
+        random_rb_tree.insert(v)
+    random_rb_tree.print_tree(random_rb_tree.root)  # safest call
+    random_rb_tree.print_log()
+
+    # === Red-Black Flight Manager ===
+    print("\n>>> Red-Black Flight Demo")
+    flights = FlightManager()
+    for id in random.sample(range(2000, 2100), 10):
+        flights.schedule_flight(id)
+    flights.display_flight_schedule()
+    flights.print_operations_log()
+
+if __name__ == "__main__":
+    demo_all()
+
+
+'''
 if __name__ == "__main__":
     random.seed(10)
     random_values = random.sample(range(1,101), 20)
@@ -36,3 +84,4 @@ if __name__ == "__main__":
     print("\nFinal Tree Root:", rbt.root)
     print("Final Red-Black Tree Height:", rbt.get_red_black_tree_height(rbt.root))
     print("Final Inorder Traversal (key, color):", rbt.inorder_traversal())
+'''
