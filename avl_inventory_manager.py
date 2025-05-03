@@ -48,7 +48,7 @@ class InventoryManager:
         Displays the current inventory by printing the AVL tree structure.
         """
         print("\n--- Inventory AVL Tree ---")  # Print a header for the inventory display
-        sself.tree.print_tree(node or self.tree.root, level, prefix, visited)  # Print the AVL tree structure
+        self.tree.print_tree(node or self.tree.root, level, prefix, visited)  # Print the AVL tree structure
 
     def show_log(self):
         """
