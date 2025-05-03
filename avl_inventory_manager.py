@@ -6,6 +6,7 @@
 
 #--------------------------------------------------------------------------------------------
 from avl_node import AvlNode
+from AVLTree import AVLTree
 
 class InventoryManager:
     """
