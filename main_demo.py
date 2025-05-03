@@ -32,7 +32,7 @@ def demo_all():
     random_values = random.sample(range(1, 100), 15)
     for v in random_values:
         random_avl_tree.insert(v)
-    random_avl_tree.print_tree(random_avl_tree.root)  # use default = safest
+    random_avl_tree.print_tree(random_avl_tree.root)
     random_avl_tree.print_log()
 
     # === AVL Inventory Manager ===
@@ -48,7 +48,7 @@ def demo_all():
     random_rb_tree = RedBlackTree()
     for v in random_values:
         random_rb_tree.insert(v)
-    random_rb_tree.print_tree(random_rb_tree.root)  # safest call
+    random_rb_tree.print_tree(random_rb_tree.root)
     random_rb_tree.print_log()
 
     # === Red-Black Flight Manager ===
