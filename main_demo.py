@@ -13,8 +13,8 @@ from avl_node import AvlNode
 from red_black_node import RedBlackTreeNode
 from AVLTree import AVLTree
 from RedBlackTree import RedBlackTree
-from avl_inventory_manager import 
-from rbt_flight_manager import
+from avl_inventory_manager import InventoryManager
+from rbt_flight_manager import FlightManager
 
 # === Unified Demo with avl_inventory_manager & rbt_flight_manager ===
 def demo_all():
