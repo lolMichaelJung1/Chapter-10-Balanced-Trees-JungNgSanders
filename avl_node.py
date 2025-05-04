@@ -9,9 +9,15 @@ from bst_node import BstNode
 
 
 class AvlNode(BstNode): # Inherit from BstNode class
-    def __init__(self, value):
-        print(f"DEBUG: AvlNode.__init__({value}) calling super()") # Added for demo
+    """
+    Node for AVL tree, inheriting from BstNode.
+    Adds a 'height' attribute for balancing.
+    """
+    def __init__(self, value, debug=False):
         super().__init__(value)  # Call BstNode constructor to initialize basic node properties
+        self.debug = debug
+        if self.debug:
+            print(f"DEBUG: AvlNode.__init__({value}) calling super()") # Added for demo
         self.height = 1        # Initialize the height of the AVL node to 1
 
     def __str__(self):
@@ -21,10 +27,9 @@ class AvlNode(BstNode): # Inherit from BstNode class
         return f"{str(self.value)} (height: {self.height})"
 
 # --------- Example Use ---------
-# Demonstrate instantiatioin calls __init__ chain
+# Demonstrate instantiation calls __init__ chain
 if __name__ == "__main__":
     # Demonstrate instantiation calls __init__ chain
     print("Creating AvlNode:")
-    avl_node = AvlNode(10)  # Instantiate an object of AvlNode with value 10
-    
+    avl_node = AvlNode(10, debug=True)  # Instantiate an object of AvlNode with value 10
     print(avl_node)  # Print the node (call the __str__ for a user-friendly output)
