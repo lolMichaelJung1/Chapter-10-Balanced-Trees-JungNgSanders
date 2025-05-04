@@ -8,15 +8,20 @@
 #--------------------------------------------------------------------------------------------
 
 class BstNode:
+    """
+    Base node for Binary Search Tree.
+    """
     # Constructor for the Node class   
-    def __init__(self, value, parent=None):
+    def __init__(self, value, parent=None, debug=False):
         """
         Initializes a new node with a given value.
 
         Args:
             value: The data to be stored in the node. Defaults to None.
-        """      
-        print(f"DEBUG: BstNode.__init__({value}) called") # Added for demo
+        """
+        self.debug = debug
+        if self.debug:
+            print(f"DEBUG: BstNode.__init__({value}) called") # Added for demo
         self.value = value  # Store data in the node
         self.left = None    # Pointer to the left child node
         self.right = None   # Pointer to the right child node
@@ -33,6 +38,6 @@ class BstNode:
 if __name__ == "__main__":
     # Demonstrate instantiation calls __init__ chain
     print("\nCreating BST Node:")
-    bst_node = BstNode(20)
+    bst_node = BstNode(20, debug=True)
     print(f"BST Node value: {bst_node.value}")
     print(f"{str(bst_node)} Left: ({bst_node.left}) Right: ({bst_node.right})")
