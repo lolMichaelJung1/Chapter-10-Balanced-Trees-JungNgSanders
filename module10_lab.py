@@ -309,7 +309,7 @@ class FlightManager:
         """Print the operation log."""
         self.tree.print_log()
 
-# === Unified Demo Script ===
+# === Unified Demo with avl_inventory_manager & rbt_flight_manager ===
 def demo_all():
     """
     Demonstrates AVL and Red-Black Trees, including:
@@ -322,10 +322,10 @@ def demo_all():
     # === AVL Tree Demo ===
     print("\n--- AVL Tree Random Insert Test ---")
     random_avl_tree = AVLTree()
-    random_values = random.sample(range(1, 100), 15)
+    random_values = random.sample(range(1, 100), 20)
     for v in random_values:
         random_avl_tree.insert(v)
-    random_avl_tree.print_tree(random_avl_tree.root)  # use default = safest
+    random_avl_tree.print_tree(random_avl_tree.root)
     random_avl_tree.print_log()
 
     # === AVL Inventory Manager ===
@@ -333,7 +333,7 @@ def demo_all():
     inv = InventoryManager()
     for id in random.sample(range(1000, 1100), 10):
         inv.add_item(id)
-    inv.show_inventory(random_avl_tree.root)
+    inv.show_inventory()
     inv.show_log()
 
     # === Red-Black Tree Demo ===
@@ -341,7 +341,7 @@ def demo_all():
     random_rb_tree = RedBlackTree()
     for v in random_values:
         random_rb_tree.insert(v)
-    random_rb_tree.print_tree(random_rb_tree.root)  # safest call
+    random_rb_tree.print_tree(random_rb_tree.root)
     random_rb_tree.print_log()
 
     # === Red-Black Flight Manager ===
