@@ -61,8 +61,9 @@ class InventoryManager:
 
 
 # === Inventory Manager Demo ===
-manager = InventoryManager()  # Create an instance of the InventoryManager
-for item in random.sample(range(1, 50), 10):  # Generate 10 random, unique item IDs
-    manager.add_item(item)  # Add each item to the inventory
+if __name__ == "__main__":
+    manager = InventoryManager()  # Create an instance of the InventoryManager
+    for item in random.sample(range(1, 50), 10):  # Generate 10 random, unique item IDs
+        manager.add_item(item)  # Add each item to the inventory
 
-manager.show_inventory()  # Display the final inventory tree
+    manager.show_inventory()  # Display the final inventory tree
