@@ -2,13 +2,26 @@
 by Michael Jung (ID:10680322), Timothy Sanders (ID: 01002147), Megan Ng (ID: 00756276)
 
 # 🛠️ Objective:
-
 - Explore AVL and Red-Black Trees.
 - Implement basic AVL and Red-Black Trees in Python.
 - Compare performance and balancing operations between the two structures.
 - Reflect on design choices through coding, visualization, and analysis.
 
 # 🧹 Lab
+## Overall Demo
+- A demo of all functionality may be found in the `main_demo.py` file, which incorporates all designed classes and executes the following scenarios
+  - AVL Tree Random Insert Test
+  - Inventory Manager Demo using AVL trees
+  - Red-Black Tree Random Insert Test
+  - Flight Manager Demo using Red-Black trees
+- To run the demos, clone the repository and execute the following code from the repository root
+```shell
+python main_demo.py
+```
+- For convenience, a single consolidated file, `module10_lab.py`, has been created to allow for downloading and running all code demos within a single file
+```shell
+python module10_lab.py
+```
 
 ## Part 1: AVL Tree Implementation
 - Implement a basic AVL Tree class in Python.
@@ -68,22 +81,17 @@ Inorder Traversal (value, color): [(10, 'B'), (20, 'R')]
 ## 📁 Project Structure (AVL & RBT)
 ```
 warehouse-inventory/airline-flight
-├── avl/
-│   ├── avl_node.py                 # AVLNode class
-│   └── AVLTree.py                  # AVLTree logic
-├── rbtree/
-│   ├── red_black_node.py           # RedBlackNode class
-│   └── RedBlackTree.py             # RedBlackTree logic
-├── data/
-│   └── generate_data.py            # Random flight data & inventory data
-├── inventory/
-│   └── avl_inventory_manager.py   # InventoryManager abstraction
-├── flights/
-│   └── rbt_flight_manager.py      # FlightManager abstraction
+├── avl_node.py                    # AVLNode class
+├── AVLTree.py                     # AVLTree logic
+├── red_black_node.py              # RedBlackNode class
+├── RedBlackTree.py                # RedBlackTree logic
+├── generate_data.py               # Random flight data & inventory data
+├── avl_inventory_manager.py       # InventoryManager abstraction
+├── rbt_flight_manager.py          # FlightManager abstraction
 ├── tests/
-│   ├── test_avl_tree.py           # Unit tests for AVL
-│   └── test_rbtree.py             # Unit tests for RBT
-├── main.py                        # Inventory app entry point
-├── main_flights.py                # Flight app entry point
+│   ├── test_avl_tree.py           # Unit tests for AVL Tree and Node
+│   └── test_rbtree.py             # Unit tests for RBT Tree and Node
+├── main_demo.py                   # Entry point for Inventory Manager and Flight Manager demos
+├── module10_lab.py                # Convenience file for all class definitions
 └── README.md                      # Project documentation
 
