@@ -29,7 +29,7 @@ def demo_all():
     # === AVL Tree Demo ===
     print("\n--- AVL Tree Random Insert Test ---")
     random_avl_tree = AVLTree()
-    random_values = random.sample(range(1, 100), 15)
+    random_values = random.sample(range(1, 100), 20)
     for v in random_values:
         random_avl_tree.insert(v)
     random_avl_tree.print_tree(random_avl_tree.root)
