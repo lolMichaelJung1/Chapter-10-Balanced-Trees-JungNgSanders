@@ -7,7 +7,6 @@
 #--------------------------------------------------------------------------------------------
 from typing import Any
 
-from bst_node import BstNode
 from red_black_node import RedBlackTreeNode
 
 
@@ -56,7 +55,7 @@ class RedBlackTree:
             else:
                 # Optional: Handle duplicate keys (e.g., ignore, update, raise error)
                 # In this version, we simply don't insert duplicates.
-                print(f"value {value} already exists. Insertion skipped.")
+                self.log.append(f"value {value} already exists. Insertion skipped.")
                 return
 
         # Link the new node to its parent
