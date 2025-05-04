@@ -17,6 +17,8 @@ class RedBlackTree:
 
     Attributes:
         root (RedBlackTreeNode): A reference to the optional root node of the Red-Black tree
+        rotation_count
+        log
     """
     def __init__(self):
         """
@@ -24,6 +26,8 @@ class RedBlackTree:
         """
         # The root node of the tree, initially None (empty tree)
         self.root = None
+        self.rotation_count = 0
+        self.log = []
 
     def insert(self, value: Any) -> None:
         """Inserts a new node with the given key into the Red-Black Tree.
@@ -38,28 +42,29 @@ class RedBlackTree:
         if not self.root:
             # If the tree is empty, the new node becomes the root
             self.root = new_node
-        else:
-            # Find the correct position for the new node using BST logic
-            current = self.root
-            parent = None
-            while current:
-                parent = current # Keep track of the parent
-                if value < current.value:
-                    current = current.left # Go left
-                elif value > current.value:
-                    current = current.right # Go right
-                else:
-                    # Optional: Handle duplicate keys (e.g., ignore, update, raise error)
-                    # In this version, we simply don't insert duplicates.
-                    print(f"value {value} already exists. Insertion skipped.")
-                    return
-
-            # Link the new node to its parent
-            new_node.parent = parent
-            if value < parent.value:
-                parent.left = new_node # Insert as left child
+            new_node.color = "B" # Root node is always black
+            return
+        # Find the correct position for the new node using BST logic
+        current = self.root
+        parent = None
+        while current:
+            parent = current # Keep track of the parent
+            if value < current.value:
+                current = current.left # Go left
+            elif value > current.value:
+                current = current.right # Go right
             else:
-                parent.right = new_node # Insert as right child
+                # Optional: Handle duplicate keys (e.g., ignore, update, raise error)
+                # In this version, we simply don't insert duplicates.
+                print(f"value {value} already exists. Insertion skipped.")
+                return
+
+        # Link the new node to its parent
+        new_node.parent = parent
+        if value < parent.value:
+            parent.left = new_node # Insert as left child
+        else:
+            parent.right = new_node # Insert as right child
 
         # Step 2: Fix any Red-Black Tree violations caused by the insertion.
         self._fix_insert(new_node)
@@ -86,6 +91,7 @@ class RedBlackTree:
         while node != self.root and node.parent.is_red():
             parent = node.parent
             grandparent = node.get_grandparent()
+            uncle = node.get_uncle()
 
             # If grandparent is None, it means parent is the root.
             # Since the loop condition requires parent to be red, and we ensure
@@ -95,8 +101,6 @@ class RedBlackTree:
             if grandparent is None:
                  break # Should not happen if parent is red
 
-            uncle = node.get_uncle()
-
             # Determine the cases based on the parent's position relative to the grandparent
             if parent == grandparent.left:
                 # --- Parent is the LEFT child ---
@@ -104,6 +108,7 @@ class RedBlackTree:
                 # Case 1: Uncle is RED
                 if uncle and uncle.is_red():
                     # Recolor parent, uncle, and grandparent
+                    self.log.append(f"Recoloring: {parent.value}, {uncle.value}, {grandparent.value}")
                     parent.color = "B"
                     uncle.color = "B"
                     grandparent.color = "R"
@@ -114,6 +119,7 @@ class RedBlackTree:
                     if node == parent.right:
                         # Perform a left rotation at the parent
                         self._rotate_left(parent)
+                        self.rotation_count += 1
                         # After rotation, the original parent becomes the node
                         # for the next step (which is now an LL case)
                         node = parent # node now points to the original parent
@@ -127,6 +133,7 @@ class RedBlackTree:
                     grandparent.color = "R"
                     # Perform a right rotation at the grandparent
                     self._rotate_right(grandparent)
+                    self.rotation_count += 1
                     # After rotation and recoloring, the subtree is balanced locally.
                     # The loop condition will re-evaluate.
 
@@ -146,6 +153,7 @@ class RedBlackTree:
                     if node == parent.left:
                         # Perform a right rotation at the parent
                         self._rotate_right(parent)
+                        self.rotation_count += 1
                         # After rotation, the original parent becomes the node
                         # for the next step (which is now an RR case)
                         node = parent # node now points to the original parent
@@ -159,6 +167,7 @@ class RedBlackTree:
                     grandparent.color = "R"
                     # Perform a left rotation at the grandparent
                     self._rotate_left(grandparent)
+                    self.rotation_count += 1
                     # After rotation and recoloring, the subtree is balanced locally.
                     # The loop condition will re-evaluate.
 
@@ -174,6 +183,7 @@ class RedBlackTree:
         Args:
             node (RedBlackTreeNode): The node around which the rotation is performed (becomes the child).
         """
+        self.log.append(f"Left rotation on node {node.value}")
         # Identify the pivot (node's right child) which will move up
         pivot = node.right
         if not pivot: # Cannot rotate left if there's no right child
@@ -210,6 +220,7 @@ class RedBlackTree:
         Args:
             node: The node around which the rotation is performed (becomes the child).
         """
+        self.log.append(f"Right rotation on node {node.value}")
         # Identify the pivot (node's left child) which will move up
         pivot = node.left
         if not pivot: # Cannot rotate right if there's no left child
@@ -238,6 +249,22 @@ class RedBlackTree:
         # The original node becomes the right child of the pivot
         pivot.right = node
         node.parent = pivot # Update the original node's parent pointer
+
+    def print_tree(self, node=None, level=0, prefix='Root:'):
+        """Print the tree structure."""
+        # node = node or self.root
+        if node:
+            print(' ' * (5 * level) + prefix + f"{node.value}({node.color})")
+            self.print_tree(node.left, level + 1, 'L----')
+            self.print_tree(node.right, level + 1, 'R----')
+
+    def print_log(self):
+        """Print the operation log."""
+        print("\n--- Red-Black Tree Log ---")
+        for entry in self.log:
+            print(entry)
+        print(f"Total Rotations: {self.rotation_count}")
+        print(f"Final Tree Height: {self.root.get_height() if self.root else -1}")
 
     # --- Helper methods for traversal/visualization (Optional) ---
     def inorder_traversal(self) -> list:
