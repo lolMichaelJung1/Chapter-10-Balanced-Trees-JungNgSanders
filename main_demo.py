@@ -40,7 +40,7 @@ def demo_all():
     inv = InventoryManager()
     for id in random.sample(range(1000, 1100), 10):
         inv.add_item(id)
-    inv.show_inventory(random_avl_tree.root)
+    inv.show_inventory()
     inv.show_log()
 
     # === Red-Black Tree Demo ===
