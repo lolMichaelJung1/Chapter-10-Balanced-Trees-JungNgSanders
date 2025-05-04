@@ -1,5 +1,6 @@
 import pytest
 from AVLTree import AVLTree
+from avl_node import AvlNode
 
 @pytest.fixture
 def avl_tree():
@@ -49,3 +50,27 @@ def test_rotation_count(avl_tree):
 def test_log_population(avl_tree):
     insert_values(avl_tree, [10, 20, 30])
     assert any("rotation" in entry.lower() for entry in avl_tree.log)
+
+def test_avl_node_inherits_bst_node():
+    node = AvlNode(5)
+    assert hasattr(node, "value")
+    assert hasattr(node, "left")
+    assert hasattr(node, "right")
+    assert hasattr(node, "parent")
+
+def test_avl_node_initial_height():
+    node = AvlNode(10)
+    assert node.height == 1
+
+def test_avl_node_debug_flag_false_by_default():
+    node = AvlNode(15)
+    assert not node.debug
+
+def test_avl_node_debug_true_prints_debug_message(capsys):
+    node = AvlNode(20, debug=True)
+    captured = capsys.readouterr()
+    assert "DEBUG: AvlNode.__init__(20) calling super()" in captured.out
+
+def test_avl_node_str_method():
+    node = AvlNode(42)
+    assert str(node) == "42 (height: 1)"
