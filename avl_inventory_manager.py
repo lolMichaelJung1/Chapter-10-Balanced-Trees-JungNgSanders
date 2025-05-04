@@ -6,10 +6,6 @@
 
 #--------------------------------------------------------------------------------------------
 import random
-from io import StringIO
-import sys
-from bst_node import BstNode
-from avl_node import AvlNode
 from AVLTree import AVLTree
 
 
@@ -40,15 +36,22 @@ class InventoryManager:
         Args:
             item_id: The ID of the item to remove.
         """
-        print(f"Removing item ID: {item_id}")  # Print a message indicating the item being removed
-        self.avl_tree.delete(item_id)  # Delete the item ID from the AVL tree
+        pass
+        #print(f"Removing item ID: {item_id}")  # Print a message indicating the item being removed
+        #self.avl_tree.delete(item_id)  # Delete the item ID from the AVL tree
 
-    def show_inventory(self):
+    def show_inventory(self, node=None, level=0, prefix='Root:', visited=None):
         """
         Displays the current inventory by printing the AVL tree structure.
+
+        Args:
+            node: The starting node for printing. Defaults to the root of the tree.
+            level: The current level of the tree. Defaults to 0 (used for indentation).
+            prefix: The prefix for indicating the position of the node (e.g. "Root:", "L----", "R----").
+            visited: Used to avoid reprinting nodes
         """
         print("\n--- Inventory AVL Tree ---")  # Print a header for the inventory display
-        self.tree.print_tree(node or self.tree.root, level, prefix, visited)  # Print the AVL tree structure
+        self.avl_tree.print_tree(node or self.avl_tree.root, level, prefix, visited)  # Print the AVL tree structure
 
     def show_log(self):
         """
