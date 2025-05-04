@@ -8,7 +8,7 @@
 from bst_node import BstNode
 
 class RedBlackTreeNode(BstNode):  # This class inherits from BstNode (a basic Binary Search Tree node class)
-    def __init__(self, value, parent=None, is_red=True):
+    def __init__(self, value, parent=None, is_red=True, debug=False):
         """
         Initializes a new Red-Black Tree Node.
 
@@ -16,19 +16,23 @@ class RedBlackTreeNode(BstNode):  # This class inherits from BstNode (a basic Bi
             value: The value to be stored in the node.
             parent: The parent node of this node (default: None).
             is_red: True if the node should be colored red initially, otherwise black (default: True).
+            debug: Whether to print debugging messages for the node.
         """
         super().__init__(value)  # Call the parent class's __init__ to initialize common attributes like value, left, right, parent
         # Set the color of the node based on the 'is_red' parameter:
         # 'R' for red if is_red is True, 'B' for black otherwise
         self.color = 'R' if is_red else 'B'
+        self.debug = debug
+        if self.debug:
+            print(f"DEBUG: RedBlackTreeNode.__init__({value}) calling super()")  # Added for demo
 
-    def __str__(self):
+    def __str__(self) -> str:
         """
         Returns a string representation of the node's value and color.
         """
         return f"{self.value}({self.color})"
 
-    def is_red(self):
+    def is_red(self) -> bool:
         """
         Checks if the node is red.
 
@@ -37,7 +41,7 @@ class RedBlackTreeNode(BstNode):  # This class inherits from BstNode (a basic Bi
         """
         return self.color == 'R'
 
-    def is_black(self):
+    def is_black(self) -> bool:
         """
         Checks if the node is black.
 
@@ -53,7 +57,7 @@ class RedBlackTreeNode(BstNode):  # This class inherits from BstNode (a basic Bi
         Returns:
             The grandparent node, or None if the current node has no grandparent.
         """
-        return self.parent.parent if self.parent else None
+        return self.parent.parent if self.parent and self.parent.parent else None
 
     def get_uncle(self):
         """
@@ -84,9 +88,15 @@ class RedBlackTreeNode(BstNode):  # This class inherits from BstNode (a basic Bi
         # If so, the sibling is the right child of the parent, otherwise it's the left child
         return self.parent.right if self == self.parent.left else self.parent.left
 
+    def get_height(self):
+        """Get the height of the node."""
+        l = self.left.get_height() if self.left else -1
+        r = self.right.get_height() if self.right else -1
+        return 1 + max(l, r)
+
 
 # ---- Example Usage  ----
 if __name__ == "__main__":
     # Demonstrate instantiation calls __init__ chain
-    rbt_node = RedBlackTreeNode(10) # Instantiate an object of RedBlackTreeNode with value 10
+    rbt_node = RedBlackTreeNode(10, debug=True) # Instantiate an object of RedBlackTreeNode with value 10
     print(rbt_node)   # Print the node (call the __str__ for a user-friendly output)
